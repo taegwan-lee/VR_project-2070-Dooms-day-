@@ -9,6 +9,7 @@ public class FadeInLight : MonoBehaviour
     public Light targetLight; // 서서히 밝아질 Light 오브젝트
     public float fadeDuration = 2.0f; // 완전히 밝아지는데 걸리는 시간(초)
     public float maxIntensity = 1.0f; // Light의 최대 Intensity 값
+    public LightBlink lightBlink; //시동 걸기전 깜빡거리는 불빛
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class FadeInLight : MonoBehaviour
     {
         float currentTime = 0.0f;
         float initialIntensity = targetLight.intensity;
+        lightBlink.StopBlinking();
 
         while (currentTime < fadeDuration)
         {
