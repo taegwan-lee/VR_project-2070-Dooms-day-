@@ -81,6 +81,7 @@ public class LaserController : MonoBehaviour
     // OnTriggerEnter 메소드를 여기에 추가
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Destroyable"))
         {
             Destroy(other.gameObject); // 다른 오브젝트 파괴
