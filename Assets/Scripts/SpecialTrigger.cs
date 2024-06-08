@@ -7,11 +7,11 @@ public class SpecialTrigger : MonoBehaviour
     public GameObject laserObject; // 레이저 오브젝트
     public float appearDuration = 1.0f; // 나타나는 시간
     public float disappearDuration = 2.0f; // 사라지는 시간
-    public Transform spawnPoint; // 레이저가 생성될 특정 오브젝트의 위치
+    public Transform spawnPoint;
     public float deactivationDelay = 3.0f; // 레이저 비활성화까지의 지연 시간
 
     public AudioClip laserSound; //공격 소리
-    private AudioSource audioSource; // 오디오 소스
+    private AudioSource audioSource;
 
     private MeshRenderer meshRenderer;
     private Material laserMaterial;
@@ -76,17 +76,17 @@ public class SpecialTrigger : MonoBehaviour
         isActivating = false;
     }
 
-    // OnTriggerEnter 메소드를 여기에 추가
+   
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Special")) // 플레이어가 영역에 진입했는지 확인
+        if (other.CompareTag("Special")) 
         {
-            ActivateLaser(); // 플레이어가 영역에 진입하면 레이저를 활성화
+            ActivateLaser();
         }
 
         if (other.CompareTag("Destroyable"))
         {
-            Destroy(other.gameObject); // 다른 오브젝트 파괴
+            Destroy(other.gameObject); 
         }
     }
 }

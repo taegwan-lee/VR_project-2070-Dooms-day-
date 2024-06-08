@@ -18,7 +18,7 @@ public class TriggerArea : MonoBehaviour
             // 파괴가능하도록 변경
             AlertSound.Play();
             objectToChangeTag.tag = "Destroyable";
-            StartCoroutine(BlinkLight()); // 라이트 깜빡임 코루틴 실행
+            StartCoroutine(BlinkLight()); 
             MeteorSpawn.SetActive(false);
         }
     }

@@ -7,7 +7,7 @@ public class LaserAttack : MonoBehaviour
     public GameObject laserObject; // 레이저 오브젝트
     public float appearDuration = 1.0f; // 나타나는 시간
     public float disappearDuration = 2.0f; // 사라지는 시간
-    public Transform spawnPoint; // 레이저가 생성될 특정 오브젝트의 위치
+    public Transform spawnPoint; 
 
     private MeshRenderer meshRenderer;
     private Material laserMaterial;
@@ -18,8 +18,8 @@ public class LaserAttack : MonoBehaviour
     {
         meshRenderer = laserObject.GetComponent<MeshRenderer>();
         laserMaterial = meshRenderer.material;
-        meshRenderer.enabled = false; // 초기에는 레이저가 보이지 않음
-        originalScale = laserObject.transform.localScale; // 원래 크기 저장
+        meshRenderer.enabled = false; // 초기에는 레이저가 안보이게
+        originalScale = laserObject.transform.localScale; // 원래 크기
     }
 
     void Update()
@@ -65,7 +65,7 @@ public class LaserAttack : MonoBehaviour
         // "Destroyable"는 파괴 가능한 오브젝트의 태그
         if (other.CompareTag("Destroyable"))
         {
-            Destroy(other.gameObject); // 다른 오브젝트 파괴
+            Destroy(other.gameObject); 
         }
     }
 }

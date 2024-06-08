@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightBlink : MonoBehaviour
 {
-    public Light pointLight; // ±ôºıÀÌ°Ô ÇÒ Light ÄÄÆ÷³ÍÆ®
+    public Light pointLight; // ±ôºıÀÌ°Ô ÇÒ Light
     public float blinkInterval = 0.5f; // ±ôºıÀÌ´Â °£°İ (ÃÊ)
     private bool isBlinking = true;
 

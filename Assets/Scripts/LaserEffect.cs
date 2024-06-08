@@ -7,7 +7,7 @@ public class LaserEffect : MonoBehaviour
     public GameObject laserObject; // 레이저 오브젝트
     public float appearDuration = 1.0f; // 나타나는 시간
     public float disappearDuration = 2.0f; // 사라지는 시간
-    public Transform spawnPoint; // 레이저가 생성될 특정 오브젝트의 위치
+    public Transform spawnPoint; 
 
     private MeshRenderer meshRenderer;
     private Material laserMaterial;
@@ -19,18 +19,16 @@ public class LaserEffect : MonoBehaviour
         meshRenderer = laserObject.GetComponent<MeshRenderer>();
         laserMaterial = meshRenderer.material;
         meshRenderer.enabled = false; // 초기에는 레이저가 보이지 않음
-        originalScale = laserObject.transform.localScale; // 원래 크기 저장
+        originalScale = laserObject.transform.localScale; 
     }
 
     public void ActivateLaser()
     {
         if (!isActivating)
         {
-            // 레이저 오브젝트를 spawnPoint의 자식으로 설정
             laserObject.transform.SetParent(spawnPoint, false);
 
-            // 레이저 오브젝트의 로컬 위치와 회전을 초기화
-            // 이 경우, 레이저 오브젝트는 spawnPoint의 정확한 위치와 방향을 따르게 됩니다.
+            // 레이저 오브젝트 로컬 위치 회전 초기화
             laserObject.transform.localPosition = Vector3.zero;
             laserObject.transform.localRotation = Quaternion.identity;
 
@@ -42,7 +40,6 @@ public class LaserEffect : MonoBehaviour
     {
         isActivating = true;
 
-        // 레이저를 나타냄
         meshRenderer.enabled = true;
         laserMaterial.color = new Color(laserMaterial.color.r, laserMaterial.color.g, laserMaterial.color.b, 1.0f);
         yield return new WaitForSeconds(appearDuration);

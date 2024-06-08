@@ -7,13 +7,13 @@ using System.Collections;
 public class FadeInLight : MonoBehaviour
 {
     public Light targetLight; // 서서히 밝아질 Light 오브젝트
-    public float fadeDuration = 2.0f; // 완전히 밝아지는데 걸리는 시간(초)
-    public float maxIntensity = 1.0f; // Light의 최대 Intensity 값
-    public LightBlink lightBlink; //시동 걸기전 깜빡거리는 불빛
+    public float fadeDuration = 2.0f; // 완전히 밝아지는데 걸리는 시간
+    public float maxIntensity = 1.0f; // 최대 Intensity
+    public LightBlink lightBlink; //시동 걸기전 깜빡거릴 불빛
 
     void Start()
     {
-        // 초기 Intensity 값을 0으로 설정
+        //인턴시티 초기화
         SetInitialIntensity();
     }
 
@@ -22,7 +22,7 @@ public class FadeInLight : MonoBehaviour
         targetLight.intensity = 0;
     }
 
-    // 버튼 클릭 이벤트에 연결될 함수
+    //눌르면 실행될 함수
     public void OnButtonClick()
     {
         StartCoroutine(FadeInLightIntensity());
@@ -42,7 +42,7 @@ public class FadeInLight : MonoBehaviour
             yield return null; // 다음 프레임까지 대기
         }
 
-        // 최종적으로 Intensity 값을 maxIntensity로 설정
+        //Intensity 값을 maxIntensity까지 가게
         targetLight.intensity = maxIntensity;
     }
 }

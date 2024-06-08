@@ -7,8 +7,8 @@ public class CockpitDrive : MonoBehaviour
     public Transform joystick;
     public float speed = 10f; // 이동 속도
     public float deadZoneAngle = 10f;
-    public AudioSource movementSound; // AudioSource를 참조
-    public AudioSource movechange;
+    public AudioSource movementSound; //부스터 소리
+    public AudioSource movechange; //방향 바뀔 때 낼 소리
 
     private bool isMoving = false;
 
@@ -18,7 +18,7 @@ public class CockpitDrive : MonoBehaviour
         float zRotation = joystick.localEulerAngles.z;
         
 
-        // 180을 초과하는 값은 음수로 변환
+        // 180까지만 받도록
         if (xRotation > 180) xRotation -= 360;
         if (zRotation > 180) zRotation -= 360;
 
