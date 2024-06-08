@@ -8,6 +8,7 @@ public class CockpitDrive : MonoBehaviour
     public float speed = 10f; // 이동 속도
     public float deadZoneAngle = 10f;
     public AudioSource movementSound; // AudioSource를 참조
+    public AudioSource movechange;
 
     private bool isMoving = false;
 
@@ -15,6 +16,7 @@ public class CockpitDrive : MonoBehaviour
     {
         float xRotation = joystick.localEulerAngles.x;
         float zRotation = joystick.localEulerAngles.z;
+        
 
         // 180을 초과하는 값은 음수로 변환
         if (xRotation > 180) xRotation -= 360;
@@ -26,6 +28,7 @@ public class CockpitDrive : MonoBehaviour
             if (isMoving)
             {
                 // 움직임이 멈추면 소리 정지
+                movechange.Play();
                 movementSound.Stop();
                 isMoving = false;
             }
@@ -35,6 +38,7 @@ public class CockpitDrive : MonoBehaviour
         // 움직임이 발생하면 소리 재생
         if (!isMoving)
         {
+            movechange.Play();
             movementSound.Play();
             isMoving = true;
         }

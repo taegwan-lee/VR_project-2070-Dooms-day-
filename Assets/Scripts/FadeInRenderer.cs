@@ -11,6 +11,8 @@ public class FadeInRenderer : MonoBehaviour
     public AudioSource BootingSound; // 부팅 소리
     public LightBlink lightBlink; // 시동 걸기 전 깜빡거리는 불빛
 
+    public GameObject MeteorSpawn;
+
     void Start()
     {
         // 초기 Alpha 값을 모든 렌더러에 대해 0으로 설정
@@ -39,6 +41,7 @@ public class FadeInRenderer : MonoBehaviour
         float currentTime = 0.0f;
         BootingSound.Play();
         lightBlink.StopBlinking();
+        MeteorSpawn.SetActive(true);
 
         while (currentTime < fadeDuration)
         {
